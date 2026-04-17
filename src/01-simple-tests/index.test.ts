@@ -1,32 +1,46 @@
 // Uncomment the code below and write your tests
-// import { simpleCalculator, Action } from './index';
+import { simpleCalculator, Action } from './index';
 
 describe('simpleCalculator tests', () => {
+  const a = 5;
+  const b = 10;
+
   test('should add two numbers', () => {
-    // Write your test here
+    const result = simpleCalculator({ a, b, action: Action.Add });
+    expect(result).toBe(a + b);
   });
 
   test('should subtract two numbers', () => {
-    // Write your test here
+    const result = simpleCalculator({ a, b, action: Action.Subtract });
+    expect(result).toBe(a - b);
   });
 
   test('should multiply two numbers', () => {
-    // Write your test here
+    const result = simpleCalculator({ a, b, action: Action.Multiply });
+    expect(result).toBe(a * b);
   });
 
   test('should divide two numbers', () => {
-    // Write your test here
+    const result = simpleCalculator({ a, b, action: Action.Divide });
+    expect(result).toBe(a / b);
   });
 
   test('should exponentiate two numbers', () => {
-    // Write your test here
+    const result = simpleCalculator({ a, b, action: Action.Exponentiate });
+    expect(result).toBe(a ** b);
   });
 
   test('should return null for invalid action', () => {
-    // Write your test here
+    const result = simpleCalculator({ a, b, action: 'unKnownAction' });
+    expect(result).toBeNull();
   });
 
   test('should return null for invalid arguments', () => {
-    // Write your test here
+    const result = simpleCalculator({
+      a: 'string',
+      b,
+      action: Action.Add,
+    });
+    expect(result).toBeNull();
   });
 });
